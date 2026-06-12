@@ -21,7 +21,7 @@ BIN_DIR = bin/
 FILES = 
 # FILES_ADD
 
-SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(FILES)))
+SRC = $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
 
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 
