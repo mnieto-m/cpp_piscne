@@ -10,9 +10,10 @@ MKDIR = mkdir -p
 
 # Directorios
 
-SRC_DIR = ./
+SRC_DIR = src/
 OBJ_DIR = bin/obj/
 BIN_DIR = bin/
+INCLUDE_DIR = include/
 
 #Files
 FILES = megaphone
@@ -27,19 +28,19 @@ OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(FILES)))
 all:  $(NAME)
 
 # Comp bin
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT_NAME)
 	$(MKDIR) $(BIN_DIR)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) 
+	$(CC) $(CFLAGS) $(INCLUDE) $(OBJ) -o $(NAME) 
+
 
 # Comp .o
 $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	$(MKDIR) $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	
 # clean OBJ
 clean:
 	$(RM) $(RMFLAGS) $(OBJ_DIR)
-
 
 # clean binary OBJ
 fclean: clean
