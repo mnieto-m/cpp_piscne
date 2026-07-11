@@ -1,4 +1,4 @@
-#include "./include/PhoneBook.hpp"
+#include "Phonebook.hpp"
 
 int	main(int argc, char **argv)
 {
@@ -7,13 +7,15 @@ int	main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 
-	while (1) {
+	while (1) 
+	{
 		std::getline(std::cin, command);
-		if (command == "add")
+// Me falta un fallo que tengo con la señal de control d
+		if (command == "ADD")
 			book.add();
-		else if (command == "search")
+		else if (command == "SEARCH")
 			book.search();
-		else if (command == "exit") {
+		else if (command == "EXIT") {
 			book.exit();
 			break ;			
 		}
