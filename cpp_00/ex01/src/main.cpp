@@ -2,25 +2,26 @@
 
 int	main(int argc, char **argv)
 {
+	if(argc != 1 || argv[1] != NULL)
+	{
+		std::cout << "Invalid argument" << std::endl;
+		return(1);
+	}
+
 	PhoneBook		book;
 	std::string		command;
-	(void)argc;
-	(void)argv;
 
-	while (1) 
+	while (std::getline(std::cin, command))
 	{
-		std::getline(std::cin, command);
-// Me falta un fallo que tengo con la señal de control d
-		if (command == "ADD")
-			book.add();
-		else if (command == "SEARCH")
-			book.search();
-		else if (command == "EXIT") {
-			book.exit();
-			break ;			
+		if (command.empty())
+			book.interface();
+		else if(command == "ADD" || command == "SEARCH" || command == "EXIT")
+			book.dictionary(command);
+		else
+		{
+			std::cout << "> Wrong command, use another command" << std::endl;
+			book.interface();
 		}
-		command = "";
 	}
-	
 	return (0);
 }

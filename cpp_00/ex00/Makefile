@@ -40,7 +40,6 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 clean:
 	$(RM) $(RMFLAGS) $(OBJ_DIR)
 
-
 # clean binary OBJ
 fclean: clean
 	$(RM) $(RMFLAGS) $(BIN_DIR) $(NAME)

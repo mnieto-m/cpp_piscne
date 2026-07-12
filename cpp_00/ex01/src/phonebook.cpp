@@ -2,11 +2,7 @@
 
 PhoneBook::PhoneBook()
 {
-	std::cout << "PhoneBook created: " << std::endl;
-	std::cout << "	Available commands:" << std::endl;
-	std::cout << "	> ADD: New contact" << std::endl;
-	std::cout << "	> SEARCH: Display a specific contact" << std::endl;
-	std::cout << "	> EXIT: Quit and delete contacts" << std::endl;
+	this->interface();
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -15,6 +11,27 @@ PhoneBook::PhoneBook()
 }
 
 PhoneBook::~PhoneBook(void) {}
+
+
+void PhoneBook::interface()
+{
+	std::cout << "PhoneBook created: " << std::endl;
+	std::cout << "	Available commands:" << std::endl;
+	std::cout << "	> ADD: New contact" << std::endl;
+	std::cout << "	> SEARCH: Display a specific contact" << std::endl;
+	std::cout << "	> EXIT: Quit and delete contacts" << std::endl;
+}
+
+void PhoneBook::dictionary(std::string command)
+{
+		if (command == "ADD")
+			this->add();
+		else if (command == "SEARCH")
+			this->search();
+		else if (command == "EXIT")
+			this->exit();
+
+}
 
 void PhoneBook::add(void)
 {
@@ -39,14 +56,24 @@ void PhoneBook::add(void)
 	std::cout << "  Save a new contact:" << std::endl;
 	std::cout << "> first_name:" << std::endl;
 	std::getline(std::cin, first_name);
+	if(std::cin.eof())
+		return;
 	std::cout << "> last_name:" << std::endl;
 	std::getline(std::cin, last_name);
+	if(std::cin.eof())
+		return;
 	std::cout << "> nickname:" << std::endl;
 	std::getline(std::cin, nickname);
+	if(std::cin.eof())
+		return;
 	std::cout << "> phone_number:" << std::endl;
 	std::getline(std::cin, phone_number);
+	if(std::cin.eof())
+		return;
 	std::cout << "> darkest_secret:" << std::endl;
 	std::getline(std::cin, darkest_secret);
+	if(std::cin.eof())
+		return;
 
 	this->_contacts[i].set_index(index.str());
 	this->_contacts[i].set_first_name(first_name);
@@ -57,6 +84,7 @@ void PhoneBook::add(void)
 
 	std::cout << "  Contact saved!" << std::endl;
 	std::cout << "> Use another command" << std::endl;
+	this->interface();
 }
 
 static void truncate(const std::string &str, size_t max_len)
@@ -126,6 +154,7 @@ void PhoneBook::search(void)
 
 void PhoneBook::exit(void)
 {
-	std::cout << "	⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⢀⠖⠢⡀⠀⠀⠀\n⠀⠀⠀⠀⠰⠊⠁⠀⠀⠀⠀⠀⠀⠈⠑⠢⣀⠀⠀⠀⠀⡞⠀⠘⠀⡆⠀⢠⠁⡠⠒⠢\n⠀⠀⣠⠂⠀⣠⣴⣶⡀⠀⠀⠀⠀⢠⣦⣄⠀⠣⡀⠀⠀⢡⠀⠀⡀⠇⠀⠇⠰⠀⢠⠊\n⠀⡰⠃⠀⠀⢿⣿⠿⠁⠀⠀⠀⠀⠈⠻⢿⠗⠀⠱⡀⠀⠈⢆⠀⠀⠂⠀⠈⠁⠀⡆⠀\n⠰⠁⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢡⠀⠄⠈⠄⠀⠀⠀⠀⠀⠀⠀⠀\n⢈⠀⢣⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡆⠘⢢⣀⡀⠀⣀⠀⠀⠀⠀⢠⠆⠀\n⢸⠀⠘⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠸⠀⠀⠀⠀⠀⠐⠤⠤⠂⠁⠀⠀\n⠀⢧⡀⠙⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⢀⣼⡿⠃⢠⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠈⢿⠀⠈⠻⣿⣷⣦⣄⣀⣀⣤⣾⡿⠋⠀⣠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠑⢄⠀⠀⠀⠉⠙⠉⠉⠉⠁⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠒⠚⠲⠶⠶⠶⠾⠚⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
+	std::cout << "⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⢀⠖⠢⡀⠀⠀⠀\n⠀⠀⠀⠀⠰⠊⠁⠀⠀⠀⠀⠀⠀⠈⠑⠢⣀⠀⠀⠀⠀⡞⠀⠘⠀⡆⠀⢠⠁⡠⠒⠢\n⠀⠀⣠⠂⠀⣠⣴⣶⡀⠀⠀⠀⠀⢠⣦⣄⠀⠣⡀⠀⠀⢡⠀⠀⡀⠇⠀⠇⠰⠀⢠⠊\n⠀⡰⠃⠀⠀⢿⣿⠿⠁⠀⠀⠀⠀⠈⠻⢿⠗⠀⠱⡀⠀⠈⢆⠀⠀⠂⠀⠈⠁⠀⡆⠀\n⠰⠁⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢡⠀⠄⠈⠄⠀⠀⠀⠀⠀⠀⠀⠀\n⢈⠀⢣⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡆⠘⢢⣀⡀⠀⣀⠀⠀⠀⠀⢠⠆⠀\n⢸⠀⠘⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⠃⠸⠀⠀⠀⠀⠀⠐⠤⠤⠂⠁⠀⠀\n⠀⢧⡀⠙⢿⣷⣄⠀⠀⠀⠀⠀⠀⠀⢀⣼⡿⠃⢠⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠈⢿⠀⠈⠻⣿⣷⣦⣄⣀⣀⣤⣾⡿⠋⠀⣠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠑⢄⠀⠀⠀⠉⠙⠉⠉⠉⠁⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠒⠚⠲⠶⠶⠶⠾⠚⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
+	std::exit(0);
 }
 

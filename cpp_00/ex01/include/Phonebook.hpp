@@ -14,6 +14,8 @@ class PhoneBook {
 	public:
 		PhoneBook();
 		~PhoneBook();
+		void interface(void);
+		void dictionary(std::string command);
 		void add(void);
 		void search(void);
 		void exit(void);
