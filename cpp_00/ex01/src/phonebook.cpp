@@ -130,9 +130,11 @@ void PhoneBook::search(void)
 	{
 		std::cout << "> Type in the idx to show info" << std::endl;
 		std::cin >> index;
-		i = atoi(index.c_str());
-		if (i >= 0 && i < 8)
+		if(std::cin.eof())
+			return;
+		if (index.length() == 1 && std::isdigit(static_cast<unsigned char>(index[0])) && index[0] >= '0' && index[0] <= '7')
 		{
+			i = index[0] - '0';
 			if (this->_contacts[i].get_index() == "")
 				std::cout << "  Contact empty, try again" << std::endl;
 			else
