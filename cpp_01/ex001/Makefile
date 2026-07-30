@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = zombie
 
 # Variables generales
 CC = c++
@@ -17,9 +17,8 @@ INCLUDE_DIR = include/
 
 #Files
 FILES = main\
-		contact\
-		phonebook
-
+		zombie\
+		zombieHorde
 # FILES_ADD
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix .cpp, $(FILES)))
