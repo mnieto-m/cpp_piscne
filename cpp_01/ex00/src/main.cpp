@@ -6,11 +6,11 @@
 /*   By: mnieto-m <mnieto-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/18 12:14:49 by mnieto-m          #+#    #+#             */
-/*   Updated: 2026/07/30 11:46:58 by mnieto-m         ###   ########.fr       */
+/*   Updated: 2026/07/30 20:02:12 by mnieto-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../include/Zombie.hpp"
 
 int main(void)
 {

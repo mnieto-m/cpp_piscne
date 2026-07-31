@@ -18,7 +18,8 @@ INCLUDE_DIR = include/
 #Files
 FILES = main\
 		zombie\
-		zombieHorde
+		newZombie\
+		randomChump
 
 # FILES_ADD
 

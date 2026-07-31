@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = a.out
 
 # Variables generales
 CC = c++
@@ -10,15 +10,14 @@ INCLUDE = -I$(INCLUDE_DIR)
 
 # Directorios
 
-SRC_DIR = src/
+SRC_DIR = ./
 OBJ_DIR = bin/obj/
 BIN_DIR = bin/
 INCLUDE_DIR = include/
 
 #Files
-FILES = main\
-		zombie\
-		zombieHorde
+FILES = main
+
 
 # FILES_ADD
 
