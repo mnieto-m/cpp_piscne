@@ -1,4 +1,4 @@
-NAME = human
+NAME = replacer
 
 # Variables generales
 CC = c++
@@ -17,9 +17,7 @@ INCLUDE_DIR = include/
 
 #Files
 FILES = main\
-		humanB\
-		humanA\
-		weapon
+		harl\
 
 # FILES_ADD
 
