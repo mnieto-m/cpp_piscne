@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "../include/Fixed.hpp"
 
 Fixed::Fixed(void):raw_bits(0)
 {

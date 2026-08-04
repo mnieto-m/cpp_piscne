@@ -3,7 +3,7 @@
 # include <string>
 # include <iostream>
 # include <iomanip>
-
+#include <cmath>
 
 class Fixed
 {
@@ -17,8 +17,9 @@ class Fixed
 
 		Fixed(const int int_nbr);
 		Fixed(const float float_nbr);
-		Fixed(Fixed &fixedp);
-		Fixed& operator=(const Fixed &fixed);
+		Fixed(const Fixed &fixedp);
+		
+		Fixed &operator=(const Fixed &fixed);
 		friend std::ostream &operator<<(std::ostream& os, const Fixed &fixed);
 
 
